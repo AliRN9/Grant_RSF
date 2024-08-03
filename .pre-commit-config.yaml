@@ -1,0 +1,27 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+
+repos:
+  # Black
+  - repo: 'https://github.com/psf/black'
+    rev: 20.8b1
+    hooks:
+      - id: black
+        additional_dependencies: [ 'click==8.0.4' ]
+
+  # Стандартные хуки
+  - repo: 'https://github.com/pre-commit/pre-commit-hooks'
+    rev: v2.4.0
+    hooks:
+      # Проверяет наличие переноса строки в конце
+      - id: end-of-file-fixer
+      # Предупреждает о сохранении файлов с UTF-8 BOM
+      - id: check-byte-order-marker
+      # Предотвращает сохранение приватных ключей
+      - id: detect-private-key
+
+  # Flake8
+  - repo: 'https://github.com/pycqa/flake8'
+    rev: 3.8.4
+    hooks:
+      - id: flake8
